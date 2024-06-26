@@ -1,3 +1,5 @@
+// 'use server'
+import Link from 'next/link';
 import React from 'react'
 
 // src/app/board/page.js
@@ -22,7 +24,8 @@ const Boards = async () => {
           <div key={item.id}
                style={{display: "flex"}}
           >
-            <h2 style={{color: "red"}}>{item.id}: {item.title}</h2>
+            {/* <a href={`/board/${item.id}`} style={{color: "red"}}>{item.id}: {item.title}</a> */}
+            <Link href={`/board/${item.id}`} style={{color: "red"}}>{item.id}: {item.title}</Link>
             <p>{item.content}</p>
           </div>
         ))

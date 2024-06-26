@@ -1,5 +1,7 @@
-import DeleteBtn from '@/app/api/board/components/DeleteBtn';
+// 'use server'
+
 import React from 'react'
+import DeleteBtn from '../components/DeleteBtn'
 
 // src/app/board/[id]/page.js
 // localhost:3000/board/:id
@@ -11,7 +13,6 @@ const getBoardId = async (id) => {
   const url = `http://localhost:3000/api/board/${id}`
   const res = await fetch(url);
   const boardId = await res.json();
-  // console.log(boardId);
   return boardId;
 }
 
