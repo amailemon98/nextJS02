@@ -8,12 +8,14 @@ import { redirect } from 'next/navigation';
 export async function GET(request, { params }){
     const { id } = params;
 
-    // 없는 데이터를 있는 것처럼 가정
-    if(id > boards.length){ // 개수보다 큰 것을 요구할때
-        redirect('/api/board') // 리다이렉트 되도록 한다.
-    }
+    // error
+    // // 없는 데이터를 있는 것처럼 가정
+    // if(parseInt(params.id) > boards.length){ // 개수보다 큰 것을 요구할때
+    //     redirect('/api/board') // 리다이렉트 되도록 한다.
+    // }
 
-    const find = boards.find(item => item.id === id); // find : {}, filter : [{}]
+    const find = boards.find(item => item.id === id); 
+    // find : {}, filter : [{}]
     return Response.json(find);
 }
 
@@ -35,7 +37,7 @@ export async function PUT(request, { params }){
     boards.splice(index, 1, updateBoard);
 
     // pwd : 파워쉘에서 경로 가져오기
-    console.log(process.cwd()); // 경로가져오기
+    // console.log(process.cwd()); // 경로가져오기
     const filePath = path.join(process.cwd(), 'src/app/api/model', 'boardData.js') // 현재경로(최상위경로) ,  
     // fs.writeFileSync(path, data, charset) // 기본문법
     fs.writeFileSync(filePath, `export const boards = ${JSON.stringify(boards, null, 4)}`, 'utf-8') // 기본문법

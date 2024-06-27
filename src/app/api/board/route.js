@@ -6,7 +6,7 @@ import datas from '../model/boardData.json'
 
 import { redirect } from 'next/navigation';
 export async function GET(){
-    console.log('datas: ' , datas);
+    // console.log('datas: ' , datas);
     // javascript 자동 parse
     return Response.json(boards) // json으로 리턴 끝 
 }
@@ -52,7 +52,7 @@ import path from 'path'
 export async function POST(request){
 
     const formData = await request.formData(); // form으로부터 데이터를 가져올땐 이렇게
-    console.log(formData);
+    // console.log(formData);
 
     // FormData {
     //     [Symbol(state)]: [

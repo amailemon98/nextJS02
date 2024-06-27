@@ -26,12 +26,17 @@ export const boards = [
     },
     {
         "id": "6",
-        "title": "CSR",
-        "content": "Client Side Rendering"
+        "title": "CSRHello2",
+        "content": "Client Side RenderingHello2"
     },
     {
         "id": "7",
         "title": "CSR",
         "content": "Client Side Rendering"
+    },
+    {
+        "id": "8",
+        "title": "typescript",
+        "content": "typescript"
     }
 ]

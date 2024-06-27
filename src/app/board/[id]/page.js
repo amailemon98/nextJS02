@@ -2,6 +2,21 @@
 
 import React from 'react'
 import DeleteBtn from '../components/DeleteBtn'
+import Link from 'next/link';
+
+export const generateMetadata = ({ params }) => {
+  const { id } = params;
+  return {
+    title: id + " | Board Detail",
+    description: "Board next app",
+  };
+}
+
+// export const metadata = {
+//   title: "Board Detail",
+//   description: "Board next app",
+// };
+
 
 // src/app/board/[id]/page.js
 // localhost:3000/board/:id
@@ -26,6 +41,9 @@ const BoardDetail = async ({params}) => {
       <h2>{find.id}: {find.title}</h2>
       <h2>{find.content}</h2>
       <DeleteBtn id={id} />
+      <Link href={`/board/${find.id}/edit`}>수정</Link>
+      {/* 수정하면 이동하도록 */}
+      {/* /board/1/edit */}
     </div>
   )
 }

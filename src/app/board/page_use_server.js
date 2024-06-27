@@ -1,37 +1,21 @@
-'use client'
-
+// 'use server'
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 // src/app/board/page.js
 // localhost:3000/board
 // localhost:3000/api/board
 // 서버페이지
 // 내 로컬에서 데이터 읽기
+const getBoards = async () => {
+  const url = `http://localhost:3000/api/board`
+  const res = await fetch(url);
+  const boards = await res.json();
+  return boards;
+}
 
-
-const Boards = () => {
-  // const boards = await getBoards();
-  // 이 부분이 useState()로 바뀜
-
-  const [ boards, setBoards ] = useState([]);
-
-  const getBoards = async () => {
-    const url = `http://localhost:3000/api/board`
-    const res = await fetch(url);
-    const boards = await res.json();
-  
-    setBoards(boards);
-    // return boards;
-  }
-
-  useEffect(() => {
-    getBoards();
-    // fetch('http://localhost:3000/api/board')
-    // .then(res => res.json())
-    // .then(res => setBoards(res))
-  }, [])
-
+const Boards = async () => {
+  const boards = await getBoards();
   return (
     <div>
       <h1>Boards</h1>
