@@ -1,5 +1,8 @@
 // src/app/api/board/route.js
 // localhost:3000/api/board
+// mariadb 사용
+// route.js에서 연동
+
 import { boards } from '../model/boardData' // 맨 처음에만 읽어오기에 새로 업데이트가 안된다.
 import datas from '../model/boardData.json' 
 // javascript로 자동 parse
